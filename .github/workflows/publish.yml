@@ -26,10 +26,10 @@ jobs:
               run: npm install -g beyond
 
             - name: Build package
-              run: beyond build --pkg=@beyond-js/api-server --distribution=node --logs
+              run: beyond build --pkg=@beyond-js/api-server --distribution=npm --logs
 
             - name: Publish to NPM
-              working-directory: .beyond/builds/node/code
+              working-directory: .beyond/builds/npm/code
               env:
                   NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
               run: npm publish --access public
