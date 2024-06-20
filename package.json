@@ -1,7 +1,8 @@
 {
-	"description": "BeyondJS AI Server",
 	"name": "@beyond-js/api-server",
-	"repository": "https://github.com/beyondjs/api-server",
+	"version": "0.0.1",
+	"description": "BeyondJS API Server",
+	"repository": "git+https://github.com/beyondjs/api-server",
 	"dependencies": {
 		"@beyond-js/kernel": "~0.1.9",
 		"dotenv": "~16.3.1",
