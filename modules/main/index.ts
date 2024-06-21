@@ -30,11 +30,14 @@ export /*bundle*/ class Server {
 
 	start(module: string) {
 		bimport(module)
-			.then(({ Routes, specs, hmr }: { Routes: IRoutes; specs: string; hmr: IHMR }) => {
+			.then(({ Routes, specs, hmr }: { Routes: IRoutes; specs: () => Promise<string>; hmr: IHMR }) => {
 				this._Routes = Routes;
 				this._hmr = hmr;
-				this._specs = specs;
 
+				return specs();
+			})
+			.then(specs => {
+				this._specs = specs;
 				this._setup();
 			})
 			.catch((exc: Error) => console.error(`Error importing module "${module}": ${exc.message}`));
